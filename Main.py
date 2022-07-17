@@ -38,6 +38,37 @@ class TestBowlingGame(unittest.TestCase):
         """simulate a Game with spare in all games"""
         self.rollMany(5,21)
         assert self.game.score()==150
+    def test2strike2spare(self):
+        """simulate a Game with 2spare and 2 strikes"""
+        self.game.roll(10)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(10)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.rollMany(1,12)
+        assert self.game.score()==83
+    def test2strike2spare(self):
+        """simulate a Game with all game with 9 pins"""
+        self.rollMany(9,20)
+        assert self.game.score()==180
+    def test2strike2spare(self):
+        """simulate a Game with random number"""
+        self.game.roll(8)
+        self.game.roll(7)
+        self.game.roll(5)
+        self.game.roll(1)
+        self.game.roll(9)
+        self.game.roll(6)
+        self.rollMany(0,14)
+        assert self.game.score()==36
+    def test2strike2spare(self):
+        """simulate a Game with one strike and one spere"""
+        self.game.roll(10)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.rollMany(0,16)
+        assert self.game.score()==30
     def rollMany(self, pins,rolls):
         """add the pins to the array"""
         for i in range(rolls):
